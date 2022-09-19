@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&family=Roboto+Slab:wght@300&display=swap");
+.logo-div img {
+  width: 6vw;
+  height: 10vh;
+  object-fit: cover;
+}
+.lr {
+  display: inline-flex;
+  flex-direction: row;
+}
+.jcc {
+  justify-content: center;
+}
+.ud {
+  display: inline-flex;
+  flex-direction: column;
+}
+.aic {
+  align-items: center;
+}
+.logo-div {
+  width: fit-content;
+  gap: 1rem;
+}
+.logo-div {
+  padding-block-start: 2rem;
+  padding-inline: 5rem;
+  color: #707070;
+  text-align: start;
+  justify-content: baseline;
+}
+.logo-div h2 {
+  font-family: "Reem Kufi Ink", sans-serif;
+}
+.parallax-bg {
+  background-image: url("../assets/images/NELSON.png");
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  /* filter: blur(4px); */
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.main{
+    background-color:rgba(255, 255, 255, 0) ;
+}
+.g-1 {
+  gap: 1rem;
+}
+.intro {
+  font-family: "Roboto Slab", serif;
+  font-size: 10vh;
+  color: #707070;
+}
+.white-hover{
+    background-color: white;
+    width: 50%;
+    height: 10px;
+    transition: all .5s ease-in-out;
+}
+.white-hover:hover{
+    width: 75%;
+}
+.goat-name{
+    color: white;
+    font-size: 15vh;
+    
+}
