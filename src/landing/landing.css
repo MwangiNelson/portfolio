@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&family=Roboto+Slab:wght@300&display=swap");
+.nav-a{
+    position: fixed;
+    top: 0;
+}
 .logo-div img {
   width: 6vw;
   height: 10vh;
@@ -33,39 +37,59 @@
   font-family: "Reem Kufi Ink", sans-serif;
 }
 .parallax-bg {
-  background-image: url("../assets/images/NELSON.png");
-  height: 100vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right;
+  
   /* filter: blur(4px); */
   position: fixed;
   right: 0;
   top: 0;
   z-index: -1;
 }
-.main{
-    background-color:rgba(255, 255, 255, 0) ;
+.main {
+    background-image: url("../assets/images/NELSON.png");
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: rgba(255, 255, 255, 0);
+  height: 100vh;
 }
 .g-1 {
   gap: 1rem;
+}
+.g-2{
+    gap: 2rem;
 }
 .intro {
   font-family: "Roboto Slab", serif;
   font-size: 10vh;
   color: #707070;
 }
-.white-hover{
-    background-color: white;
-    width: 50%;
-    height: 10px;
-    transition: all .5s ease-in-out;
+.white-hover {
+  background-color: white;
+  width: 30%;
+  height: 10px;
+  transition: all 0.5s ease-in-out;
+  border-radius: 4px;
 }
-.white-hover:hover{
-    width: 75%;
+.name
+{
+    background-color: rgba(255, 255, 255, 0);
 }
-.goat-name{
-    color: white;
-    font-size: 15vh;
-    
+.name:hover .white-hover {
+  width: 90%;
+}
+.goat-name {
+  color: white;
+  font-size: 15vh;
+  font-family: "Reem Kufi Ink", sans-serif;
+}
+.bg-trans{
+    background-color: rgba(255, 255, 255, 0);
+}
+.red{
+    color: red;
+}
+.c-grey
+{
+    color: #707070;
 }
