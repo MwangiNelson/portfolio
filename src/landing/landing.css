@@ -1,13 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&family=Roboto+Slab:wght@300&display=swap");
-.nav-a{
-    position: fixed;
-    top: 0;
+.nav-a {
+  position: fixed;
+  top: 0;
 }
 .logo-div img {
   width: 6vw;
   height: 10vh;
   object-fit: cover;
+  transition: all 0.5s ease;
 }
+.logo-div {
+  transition: all 0.7s ease;
+  background-color: #171717;
+}
+.logo-div:hover {
+  color: white;
+}
+.logo-div:hover img {
+  transform: rotate(180deg);
+  filter: grayscale(100%);
+}
+.logo-div h2 {
+  left: -100%;
+}
+.logo-div:hover h2 {
+  transform: scale(1.05);
+  left: 10;
+}
+
 .lr {
   display: inline-flex;
   flex-direction: row;
@@ -37,7 +57,6 @@
   font-family: "Reem Kufi Ink", sans-serif;
 }
 .parallax-bg {
-  
   /* filter: blur(4px); */
   position: fixed;
   right: 0;
@@ -45,24 +64,29 @@
   z-index: -1;
 }
 .main {
-    background-image: url("../assets/images/NELSON.png");
+  background-image: url("../assets/images/NELSON_dark.png");
   height: 100vh;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
-  background-color: rgba(255, 255, 255, 0);
   height: 100vh;
 }
 .g-1 {
   gap: 1rem;
 }
-.g-2{
-    gap: 2rem;
+.g-2 {
+  gap: 2rem;
+}
+.tac {
+  text-align: center;
 }
 .intro {
   font-family: "Roboto Slab", serif;
   font-size: 10vh;
   color: #707070;
+}
+* {
+  font-family: "Roboto Slab", serif;
 }
 .white-hover {
   background-color: white;
@@ -71,9 +95,8 @@
   transition: all 0.5s ease-in-out;
   border-radius: 4px;
 }
-.name
-{
-    background-color: rgba(255, 255, 255, 0);
+.name {
+  background-color: rgba(255, 255, 255, 0);
 }
 .name:hover .white-hover {
   width: 90%;
@@ -83,13 +106,32 @@
   font-size: 15vh;
   font-family: "Reem Kufi Ink", sans-serif;
 }
-.bg-trans{
-    background-color: rgba(255, 255, 255, 0);
+.bg-transp {
+  background-color: rgba(255, 255, 255, 0);
 }
-.red{
-    color: red;
+.red {
+  color: red;
 }
-.c-grey
-{
-    color: #707070;
+.c-grey {
+  color: #707070;
+}
+.cursor {
+  width: 10vh;
+  height: 10vh;
+  background-color: #707070;
+  border-radius: 50%;
+  position: fixed;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  /* transform: translate(-50%, -50%); */
+  transition: all 0.15s ease;
+}
+.name:hover .cursor {
+  transform: scale(3);
+  /* mix-blend-mode: normal;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid white; */
+}
+.hero-desc h4 {
+  font-size: 3vh;
 }
