@@ -124,8 +124,8 @@
   color: #707070;
 }
 .cursor {
-  width: 10vh;
-  height: 10vh;
+  width: 5vh;
+  height: 5vh;
   background-color: #707070;
   border-radius: 50%;
   position: fixed;
@@ -136,8 +136,8 @@
   transition: all 0.15s ease;
 }
 .cursor-2 {
-  width: 5vh;
-  height: 5vh;
+  width: 10vh;
+  height: 10vh;
   border: 2px solid white;
   background-color: #00000000;
   border-radius: 50%;
@@ -148,7 +148,7 @@
   transform: translate(-30%, -40%);
   transition: all 0.3s ease-out;
 }
-.name:hover .cursor {
+.name:hover .cursor-2 {
   transform: scale(3);
   /* mix-blend-mode: normal;
   background-color: rgba(255, 255, 255, 0);
