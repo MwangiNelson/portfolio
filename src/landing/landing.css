@@ -24,19 +24,19 @@
   color: white;
 }
 .logo-div:hover img {
-  transform: rotate(180deg);
+  transform: rotate(450deg);
   filter: grayscale(100%);
 }
 .logo-div h2 {
   position: absolute;
   width: max-content;
-  left: -12%;
+  left: -15%;
   color: #171717;
   transition: all 1s ease;
   z-index: 2;
 }
 .logo-div:hover h2 {
-  left: 15%;
+  left: 10%;
   color: #707070;
 }
 
@@ -89,9 +89,9 @@
   text-align: center;
 }
 .intro {
-  font-family: "Roboto Slab", serif;
-  font-size: 10vh;
-  color: #707070;
+  font-family: "Reem Kufi Ink", sans-serif;
+  font-size: 5vh;
+  color: #fff;
 }
 * {
   font-family: "Barlow Condensed", sans-serif;
@@ -102,6 +102,7 @@
   height: 10px;
   transition: all 0.5s ease-in-out;
   border-radius: 4px;
+  box-shadow: 0px 0px 10px #fff;
 }
 .name {
   background-color: rgba(255, 255, 255, 0);
@@ -113,6 +114,10 @@
   color: white;
   font-size: 15vh;
   font-family: "Reem Kufi Ink", sans-serif;
+  transition: all .3s ease;
+}
+.goat-name:hover {
+  text-shadow: 0px 0px 10px #fff;
 }
 .bg-transp {
   background-color: rgba(255, 255, 255, 0);
@@ -147,9 +152,11 @@
   pointer-events: none;
   transform: translate(-30%, -40%);
   transition: all 0.3s ease-out;
+  backdrop-filter: grayscale(1);
 }
 .name:hover .cursor-2 {
   transform: scale(3);
+  text-shadow: 0px 0px 10px #fff;
   /* mix-blend-mode: normal;
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid white; */
@@ -174,12 +181,13 @@
   background-color: white;
 }
 .h-fill {
-  height: 130vh;
-  background-image: url("../assets/images/NELSON_dark.png");
-
-  background-size: contain;
+  height: 100vh;
+  background-image: url("../assets/images/NELSON_dark.png"),url("../assets/images/test2.png") ;
+  background-size: contain,cover;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: right,center;
+  background-attachment: local,fixed;
+
 }
 .btn-holder {
   width: 100%;
@@ -227,10 +235,11 @@
 }
 .scroll-location {
   position: absolute;
-  background-color: white;
+  background-color: #fff;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   transform: translate(-45%, -50%);
-  box-shadow: 0px 0px 10px white;
+  box-shadow: 0px 0px 10px #fff;
+  filter: drop-shadow(2px 4px 6px black);
 }
