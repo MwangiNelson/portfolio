@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 
 import Landing from './landing/landing';
 import About from './about/about';
+import Projects from './projects/projects';
 
 function App() {
 
@@ -33,6 +34,7 @@ const { x, y } = useMouse();
       <div className="cursor-2" style={{ left: `${x}px`, top: `${y}px` }}></div>
       <Landing />
       <About />
+      <Projects />
     </div>
   );
 }

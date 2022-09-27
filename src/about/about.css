@@ -1,12 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
 .about {
   background-color: white;
   height: 100vh;
   width: 100vw;
-  background-image:url("../assets/images/test2.png") ;
-  background-size: contain;
+  background-image: 
+    url("../assets/images/mugshot_bg.webp");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  filter: grayscale(1);
+  align-items: center;
+  justify-content: flex-end;
+  padding-inline: 5vw;
+}
 
+.head {
+  background-color: #fff;
+  width: 35%;
+  height: 50vh;
+  border-radius: 5px;
+  color: #131313;
+  font-size: 5vh;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+.head h2 {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 5vh;
 }

@@ -3,8 +3,10 @@ import './about.css'
 
 function About() {
   return (
-    <div className='about'>
-
+    <div className='lr about'>
+      <div className="head">
+        <h2>ABOUT</h2>
+      </div>
     </div>
   )
 }
