@@ -1,6 +1,8 @@
 import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
 import React, { useState, useEffect } from 'react'
 import './crud.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { db } from './firebase'
 
 function Crud() {
@@ -29,6 +31,13 @@ function Crud() {
             ingredients: data.ingredients,
             title: data.title
         })
+
+        toast.success("Recipe created successfully",
+            {
+                position: "top-center",
+                autoClose: 5000,
+            })
+
         // db.collection('recipes').add({
         //     author: data.name,
         //     procedure: data.procedure,
@@ -75,6 +84,7 @@ function Crud() {
                     <h2>RECETTE</h2>
                 </div>
             </nav>
+            <ToastContainer />
             <div className="main-body">
                 <div className="recipe-form-wrapper">
                     <div className="header">
