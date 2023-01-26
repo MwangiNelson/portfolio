@@ -1,4 +1,4 @@
-import { query, collection, onSnapshot } from 'firebase/firestore'
+import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
 import React, { useState, useEffect } from 'react'
 import './crud.css'
 import { db } from './firebase'
@@ -8,6 +8,34 @@ function Crud() {
     const [ingredients, setIngredients] = useState([])
     const [list, setList] = useState([])
     const [recettes, setRecettes] = useState([])
+
+    const [name, setName] = useState('')
+    const [title, setTitle] = useState('')
+    const [procedure, setProcedure] = useState('')
+    const [data, setData] = useState({})
+
+    const collectData = () => {
+        setData(data.name = name, data.title = title, data.procedure = procedure, data.ingredients = list)
+    }
+
+    const createRecipe = async (e) => {
+        collectData()
+        e.preventDefault(e)
+        console.log(data)
+
+        await addDoc(collection(db, 'recipes'), {
+            author: data.name,
+            procedure: data.procedure,
+            ingredients: data.ingredients,
+            title: data.title
+        })
+        // db.collection('recipes').add({
+        //     author: data.name,
+        //     procedure: data.procedure,
+        //     ingredients: data.ingredients,
+        //     title: data.title
+        // })
+    }
     useEffect(() => {
 
         const q = query(collection(db, 'recipes'))
@@ -54,14 +82,21 @@ function Crud() {
 
                     </div>
                     <div className="recipe-form-container">
-                        <form action="" className="recipe-form">
-
+                        <form action="" className="recipe-form" onSubmit={createRecipe}>
+                            <div className="input-field">
+                                <div className="label-holder">
+                                    <label htmlFor="name">Recipe author</label>
+                                </div>
+                                <div className="fillable">
+                                    <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} placeholder="What is your name?" />
+                                </div>
+                            </div>
                             <div className="input-field">
                                 <div className="label-holder">
                                     <label htmlFor="name">Recipe title</label>
                                 </div>
                                 <div className="fillable">
-                                    <input type="text" name="name" id="name" placeholder="Recipe title" />
+                                    <input type="text" value={title} onChange={(e) => { setTitle(e.target.value) }} placeholder="Recipe title" />
                                 </div>
                             </div>
                             <div className="input-field">
@@ -87,7 +122,7 @@ function Crud() {
                                     <label htmlFor="name">Procedure</label>
                                 </div>
                                 <div className="fillable">
-                                    <textarea name="procedure" id="" rows="7"></textarea>
+                                    <textarea name="procedure" value={procedure} onChange={(e) => { setProcedure(e.target.value) }} rows="7"></textarea>
                                 </div>
                             </div>
                             <div className="submit">
