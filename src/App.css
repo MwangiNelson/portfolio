@@ -1,49 +1,72 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Reem+Kufi+Ink&family=Roboto+Slab:wght@300&display=swap");
-
+* {
+  font-family: "Barlow Condensed", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   width: 100%;
-  background-color: #000000;
+  background-color: #ff7300;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: fit-content;
   color: white;
   justify-content: center;
   align-items: center;
 }
 .data {
-  position: absolute;
-  bottom: 0;
-  left:0;
   width: 100%;
   color: #fff;
   text-transform: uppercase;
-  font-family:"Barlow Condensed", sans-serif;
   font-size: 1.5em;
   font-weight: bold;
-  z-index: 9;
 }
 .data-container {
-  width: 50%;
+  width: 75%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 5rem;
   justify-content: center;
   align-items: center;
 }
 .image {
   position: relative;
   width: 100%;
-  height:100%;
+  height: 100%;
   object-fit: contain;
 }
 .card {
+  padding: 1rem;
   position: relative;
   justify-self: center;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
-  background-color: #949494;
+  background-color: #525252;
   border-radius: 5px;
   width: 100%;
   height: 100%;
+}
+.search-bar {
+  padding: 1rem;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+}
+.search-bar input {
+  padding: 1rem;
+  border: none;
+  outline: none;
+  width: 20vw;
+  font-size: 1em;
+}
+.btn-search {
+  padding: 1rem;
+  font-size: 1em;
+  border: none;
+  display: flex;
+  gap: 2em;
 }

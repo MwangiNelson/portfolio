@@ -5,34 +5,33 @@ import axios from 'axios'
 function App() {
   // const axios = require("axios");
   const [posts, setPosts] = useState([])
+  const [search, setSearch] = useState('')
 
-  const options = {
-    method: 'GET',
-    url: 'https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe',
-    params: { query: 'italian wedding soup' },
-    headers: {
-      'X-RapidAPI-Key': '10df58f8ffmshf892425f3111697p11a041jsn4bac382ca30a',
-      'X-RapidAPI-Host': 'recipe-by-api-ninjas.p.rapidapi.com'
-    }
-  };
 
   useEffect(() => {
-    axios.request(options).then(function (response) {
-      console.log(response.data);
-      setPosts(response.data);
-    }).catch(function (error) {
-      console.error(error);
-    });
+    axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s='+search)
+      .then(function (response) {
+        console.log(response.data);
+        setPosts(response.data.meals);
+      }).catch(function (error) {
+        console.error(error);
+      });
   }, [])
 
+  function handleChange (e){
+    setSearch(e.target.value);
+  }
   return (
     <div className='App'>
-      <h2 className="header">DRINKS</h2>
+      <div className="search-bar">
+        <input type="text" value={search} onInput={handleChange}/>
+        <button className="btn-search"><i className="fa-brands fa-searchengin"></i> SEARCH</button>
+      </div>
+      <h2 className="header">RECIPES</h2>
       <div className="data-container">
 
-        {posts.map(data => <div className='card' ><p key={data.title} className='data'>{data.title}</p> <p>{data.instructions}</p>
+        {posts.map(data => <div className='card' ><p key={data.strMeal} className='data'>{data.strMeal}</p> <hr /> <p>{data.strInstructions}</p>
         </div>)}
-
       </div>
 
     </div>
