@@ -1,0 +1,8 @@
+.recipe-holder {
+  width: 75%;
+}
+.recipe-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}

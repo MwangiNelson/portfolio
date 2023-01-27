@@ -9,7 +9,6 @@ function Crud() {
 
     var [ingredients, setIngredients] = useState([])
     var [list, setList] = useState([])
-    const [recettes, setRecettes] = useState([])
 
     var [name, setName] = useState('')
     var [title, setTitle] = useState('')

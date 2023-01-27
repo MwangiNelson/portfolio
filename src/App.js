@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import Crud from './crud';
+import Recipes from './pages/recipes';
 import axios from 'axios'
 
 function App() {
@@ -20,26 +21,10 @@ function App() {
   }, [])
 
 
-  //fetch from db
+  const [toggle, setToggle] = useState(true)
 
 
-  function handleChange(e) {
-    setSearch(e.target.value);
-  }
   return (
-    // <div className='App'>
-    //   <div className="search-bar">
-    //     <input type="text" value={search} onInput={handleChange}/>
-    //     <button className="btn-search"><i className="fa-brands fa-searchengin"></i> SEARCH</button>
-    //   </div>
-    //   <h2 className="header">RECIPES</h2>
-    //   <div className="data-container">
-
-    //     {posts.map(data => <div className='card' ><p key={data.strMeal} className='data'>{data.strMeal}</p> <hr /> <p>{data.strInstructions}</p>
-    //     </div>)}
-    //   </div>
-
-    // </div>
     <section className="main-body">
       <nav className="home-navbar">
         <div className="logo">
@@ -47,9 +32,10 @@ function App() {
         </div>
       </nav>
       <div className="nav-btn-holder">
-        <button className="btn-navigate">View all recipes</button>
+        <button className="btn-navigate" onClick={() => { setToggle(!toggle) }}>{toggle ? 'View all recipes' : 'Add a Recipe'}</button>
       </div>
-      <Crud />
+      {toggle ? <Crud /> : <Recipes />}
+
     </section>
   );
 }

@@ -1,6 +1,73 @@
 .content-card {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    width: 100%;
-    background-color: var(--primary-grey);
+  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+    rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+  width: 100%;
+  background-color: var(--primary-yellow);
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: start;
+  align-items: start;
+  border-radius: 3px;
+  padding: 1em 0em 1em 5em;
+}
+.content-header {
+  max-width: 100%;
+  width: 100%;
+  padding-block: 1em;
+  position: relative;
+  text-align: start;
+  text-transform: uppercase;
+}
+.content-header h2 {
+  margin: 0;
+}
+.content-header::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: var(--primary-dark-blue);
+}
+
+.content-ingredients {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+  width: 100%;
+  gap: 0.5em;
+}
+.content-ingredients span {
+  background-color: var(--primary-grey);
+  color: var(--primary-dark-blue);
+  padding: 0.5em 1em;
+  border: 1px solid var(--primary-orange);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: fit-content;
+  text-transform: capitalize;
+}
+.content-procedure {
+  padding-block-start: 1em;
+  width: 75%;
+  text-align: start;
+}
+.content-procedure h4 {
+  margin: 0;
+}
+.content-procedure ul {
+  list-style: lower-roman;
+  margin: 0;
+  padding: 0;
+}
+.content-owner {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  text-transform: capitalize;
+  right: 5%;
+}
+.content-owner p {
+  padding-inline-end: 2em;
 }
