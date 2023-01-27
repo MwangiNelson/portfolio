@@ -1,5 +1,5 @@
 import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './crud.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,24 +7,23 @@ import { db } from './firebase'
 
 function Crud() {
 
-    const [ingredients, setIngredients] = useState([])
-    const [list, setList] = useState([])
+    var [ingredients, setIngredients] = useState([])
+    var [list, setList] = useState([])
     const [recettes, setRecettes] = useState([])
 
-    const [name, setName] = useState('')
-    const [title, setTitle] = useState('')
-    const [procedure, setProcedure] = useState('')
-    const [data, setData] = useState({})
+    var [name, setName] = useState('')
+    var [title, setTitle] = useState('')
+    var [procedure, setProcedure] = useState('')
+    var data = useRef({})
+
 
     const collectData = () => {
-        setData(data.name = name, data.title = title, data.procedure = procedure, data.ingredients = list)
+        data.name = name
+        data.title = title
+        data.ingredients = list
+        data.procedure = procedure
     }
-
-    const createRecipe = async (e) => {
-        collectData()
-        e.preventDefault(e)
-        console.log(data)
-
+    const storeData = async () => {
         await addDoc(collection(db, 'recipes'), {
             author: data.name,
             procedure: data.procedure,
@@ -37,26 +36,39 @@ function Crud() {
                 position: "top-center",
                 autoClose: 5000,
             })
-
-        // db.collection('recipes').add({
-        //     author: data.name,
-        //     procedure: data.procedure,
-        //     ingredients: data.ingredients,
-        //     title: data.title
-        // })
     }
-    useEffect(() => {
 
-        const q = query(collection(db, 'recipes'))
-        const unsubscribe = onSnapshot(q, snapshot => {
-            let recipesArr = []
-            snapshot.forEach(doc => {
-                recipesArr.push({ ...doc.data(), id: doc.id })
-            })
-            setRecettes(recipesArr)
-        })
-    }, [])
-    console.log(recettes)
+
+    const createRecipe = (e) => {
+        e.preventDefault(e)
+
+
+        const validated = (obj) => {
+            for (let i in obj) {
+                if (obj[i] === "" || obj[i].length == 0) {
+                    toast.warn(`Please fill in the ${i} fields`, {
+                        position: "top-center",
+                        autoClose: 4000,
+                    })
+                    return false
+                }
+
+            }
+            return true
+        }
+
+        if (validated(data)) {
+            storeData()
+        }
+
+
+    }
+
+    useEffect(() => {
+        collectData()
+    })
+
+    // console.log(recettes)
     function handleChange(e) {
         setIngredients(e.target.value)
     }
@@ -79,20 +91,16 @@ function Crud() {
 
     return (
         <div className="main_sect">
-            <nav className="home-navbar">
-                <div className="logo">
-                    <h2>RECETTE</h2>
-                </div>
-            </nav>
+
             <ToastContainer />
             <div className="main-body">
                 <div className="recipe-form-wrapper">
                     <div className="header">
-                        <h4>Créer une recette</h4>
+                        <h4>CREATE A RECIPE</h4>
 
                     </div>
                     <div className="recipe-form-container">
-                        <form action="" className="recipe-form" onSubmit={createRecipe}>
+                        <form className="recipe-form" onSubmit={createRecipe}>
                             <div className="input-field">
                                 <div className="label-holder">
                                     <label htmlFor="name">Recipe author</label>
@@ -118,11 +126,11 @@ function Crud() {
                                         <input type="text" onChange={handleChange} name="name" id="name" placeholder="Add your ingredients here" />
                                         <button className="add-btn" onClick={handleSubmit} type='button'>ADD</button>
                                     </div>
-                                    <hr />
-                                    <div className="ingredients-list">
-                                        {list.map((item, index) => { return <span className="ingredient-item">{item} <button className="ingred-btn" id={index} type='button' onClick={() => deleteItem(index)}>< i className="fa-solid fa-xmark"></i></button></span> })}
+                                    <small style={{ marginBlock: '5px' }}>Your Ingredients will appear here</small>
+                                    <div className="ingredients-list" >
+                                        {list.map((item, index) => { return <div className="ing"><span className="ingredient-item">{item} <button className="ingred-btn" id={index} type='button' onClick={() => deleteItem(index)}>< i className="fa-solid fa-xmark"></i></button></span></div> })}
                                     </div>
-                                    <hr />
+
                                 </div>
 
 

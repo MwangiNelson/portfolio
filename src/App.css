@@ -1,13 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Reem+Kufi+Ink&family=Roboto+Slab:wght@300&display=swap");
-* {
-  font-family: "Barlow Condensed", sans-serif;
+@import url("./root.css");
+
+.nav-btn-holder {
+  width: 75%;
+  justify-content: end;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding-top: 2em;
 }
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+/* CSS */
+.btn-navigate {
+  font-size: 1em;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: all 0.75s ease;
 }
-.App {
+.btn-navigate:hover {
+  background-color: var(--primary-grey);
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px, 6px 6px 0px 0px, 7px 7px 0px 0px,8px 8px 0px 0px,
+    9px 9px 0px 0px,
+    10px 10px 0px 0px,
+    11px 11px 0px 0px;
+
+}
+.btn-navigate:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .btn-navigate {
+    padding: 0.25em 0.75em;
+  }
+}
+/* .App {
   width: 100%;
   background-color: #000000;
   display: flex;
@@ -69,4 +110,4 @@ body {
   border: none;
   display: flex;
   gap: 2em;
-}
+} */
