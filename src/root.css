@@ -3,9 +3,12 @@
 :root {
   --primary-orange: #ff5400;
   --primary-yellow: #ffbd00;
+  --primary-golden:#cca711;
   --primary-dark-blue: #1e1e1e;
   --primary-grey: #d9d9d9;
-  --primary-green:#008f3b;
+  --primary-grey-dark: #838383;
+  --primary-green: #008f3b;
+  --primary-purple: #4940fd;
   --primary-font: "K2D", sans-serif;
 
   --primary-spacer: 1rem;

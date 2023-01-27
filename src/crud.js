@@ -25,7 +25,7 @@ function Crud() {
     const storeData = async () => {
         await addDoc(collection(db, 'recipes'), {
             author: data.name,
-            procedure: data.procedure,
+            procedure: data.procedure.replace('/\n/gm','.'),
             ingredients: data.ingredients,
             title: data.title
         })

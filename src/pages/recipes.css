@@ -1,8 +1,29 @@
 .recipe-holder {
   width: 75%;
 }
-.recipe-container{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1em;
+.recipe-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
+@media only screen and (max-width: 729px) {
+  .recipe-holder {
+    width: 100%;
+  }
+  .header {
+    width: 100%;
+  }
+  .header h2 {
+    width: 50%;
+    color: var(--primary-yellow);
+    background-color: var(--primary-purple);
+    padding: 0.4em;
+    border: 1px solid var(--primary-grey);
+    border-radius: 0px 0px 5px 0px;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px,
+      4px 4px 0px 0px;
+  }
+  .recipe-container{
+    width: 100%;
+  }
 }
