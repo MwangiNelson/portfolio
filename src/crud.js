@@ -21,13 +21,15 @@ function Crud() {
         data.title = title
         data.ingredients = list
         data.procedure = procedure
+        data.timeStamp = new Date().toLocaleString()
     }
     const storeData = async () => {
         await addDoc(collection(db, 'recipes'), {
             author: data.name,
-            procedure: data.procedure.replace('/\n/gm','.'),
+            procedure: data.procedure.replace('/\n/gm', '.'),
             ingredients: data.ingredients,
-            title: data.title
+            title: data.title,
+            creationTime: data.timeStamp
         })
 
         toast.success("Recipe created successfully",
