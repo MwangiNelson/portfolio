@@ -42,8 +42,6 @@ function Crud() {
 
     const createRecipe = (e) => {
         e.preventDefault(e)
-
-
         const validated = (obj) => {
             for (let i in obj) {
                 if (obj[i] === "" || obj[i].length == 0) {
@@ -61,8 +59,6 @@ function Crud() {
         if (validated(data)) {
             storeData()
         }
-
-
     }
 
     useEffect(() => {
